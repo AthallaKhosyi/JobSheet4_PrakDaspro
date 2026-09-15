@@ -23,14 +23,19 @@ public class SIAKAD06 {
         System.out.print("Masukkan nilai ujian: ");
         double ujian = sc.nextDouble();
 
-        // 3. Hitung Nilai Akhir
-        double nilaiAkhir = (kuis + tugas + ujian) / 3;
+        // 3. Bobot Nilai
+        double bobotKuis = 0.30;
+        double bobotUjian = 0.30;
+        double bobotTugas = 0.40;
 
-        // 4. Deklarasi untuk hasil
+        // 4. Hitung Nilai Akhir (dengan pembobotan)
+        double nilaiAkhir = (kuis * bobotKuis) + (ujian * bobotUjian) + (tugas * bobotTugas);
+
+        // 5. Deklarasi untuk hasil
         String huruf;
         String kualifikasi;
 
-        // 5. Cek Nilai (If - Else)
+        // 6. Cek Nilai (If - Else)
         if (nilaiAkhir > 80) {
             huruf = "A";
             kualifikasi = "Sangat Baik";
@@ -54,9 +59,12 @@ public class SIAKAD06 {
             kualifikasi = "Gagal";
         }
 
-        // 6. Output Hasil
+        // 7. Output Hasil
         System.out.println(
         "Mahasiswa dengan nama " + nama + " (NIM " + nim + ") kelas " + kelas + " nomor absen " + absen);
+        System.out.println("Nilai kuis (30%): " + (kuis * bobotKuis));
+        System.out.println("Nilai ujian (30%): " + (ujian * bobotUjian));
+        System.out.println("Nilai tugas (40%): " + (tugas * bobotTugas));
         System.out.println("Nilai akhir: " + nilaiAkhir);
         System.out.println("Nilai akhir huruf: " + huruf);
         System.out.println("Kualifikasi: " + kualifikasi);
